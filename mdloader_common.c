@@ -336,7 +336,7 @@ int test_port(char *portname, char silent)
 
     if (!set_normal_mode())
     {
-        if (!silent) printf("Error: Could not communicate with device! (Correct port?)\n");
+        if ((deviceid & 0xFFFFF0FF) == mcu->cidr)
         close_port(silent);
         return 0;
     }
